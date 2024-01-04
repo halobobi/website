@@ -1,0 +1,171 @@
+<!-- page2.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home page</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            padding-top:150px;
+            box-sizing: border-box;
+            background-size: cover;
+            background-position: center;
+            color: #000000;
+            overflow-x: hidden;
+            transition: padding-top 0.3s;
+        }
+
+        h1{
+            margin-left:10px;
+            margin-right:10px;
+        }
+
+        header, footer {
+            background-color: rgba(0, 123, 255,80%);
+            color: #fff;
+            text-align: center;
+            padding: 1em 0;
+            position: fixed;
+            width: 100%;
+            z-index: 1000;
+            transition: height 1s, padding 1s;
+        }
+
+        header {
+            top: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+            transition: flex-direction 1s;
+        }
+
+        nav {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+            align-items: center;
+            flex-wrap: nowrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            padding: 10px 20px;
+            margin:3px;
+            border-radius: 5px;
+            background-color: rgba(0, 123, 255, 0.6);
+            transition: background-color 0.3s;
+            min-width: 75px;
+        }
+
+        nav a:hover {
+            background-color: rgba(0, 123, 255, 0.8);
+        }
+
+        nav #active {
+            background-color: rgba(0, 123, 255, 0.8);
+            font-weight: bold;
+        }
+
+        section {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            position: relative;
+            z-index: 100;
+        }
+
+        section:nth-child(even) {
+            background-color: rgba(231, 231, 231, 0.9);
+        }
+
+        footer {
+            bottom: 0;
+            position: relative;
+        }
+
+        @media only screen and (max-width: 600px) {
+            body{
+                padding-top:150px;
+            }
+            section {
+                margin: 50px auto;
+                max-width: 85%;
+            }
+            h1{
+                font-size: 150%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Your Advanced Website</h1>
+        <nav>
+            <a href="index.html" id="active">Home</a>
+            <a href="page1.html">Button1</a>
+            <a href="page2.html">Button2</a>
+            <a href="page3.html">Button3</a>
+        </nav>
+    </header>
+
+    <section>
+        <h2>Welcome to Page 2</h2>
+        <p>This is another page with a fixed background and scrolling panels.</p>
+        <p>Feel free to customize and add your content here.</p>
+    </section>
+
+    <section>
+        <h2>Section Two</h2>
+        <p>Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error temporibus nobis, sit eos quos ipsam nesciunt voluptas veritatis assumenda cumque iure quibusdam mollitia iusto, consequuntur laborum suscipit beatae accusantium eligendi!Lorem amet consectetur adipisicing elit. Reiciendis, repellat ex aspernatur consectetur at laborum inventore eum libero accusamus ipsam nihil deserunt, laudantium voluptates sapiente vel atque, labore excepturi fugiat?Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis urna ac nisi vulputate facilisis. Quisque eu mi nec purus tincidunt varius ac sit amet mauris.</p>
+    </section>
+
+    <section>
+        <h2>Section Three</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis urna ac nisi vulputate facilisis. Quisque eu mi nec purus tincidunt varius ac sit amet mauris.</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Advanced Website. All rights reserved.</p>
+    </footer>
+
+    <script>
+        let isScrolled = false;
+
+        window.onscroll = function() {
+            scrollFunction();
+        };
+
+        function scrollFunction() {
+            const header = document.querySelector("header");
+            const nav = document.querySelector("nav");
+
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                if (!isScrolled) {
+                    header.style.padding = "0.5em 0";
+                    header.style.height = "fit-content";
+                    header.style.flexDirection = "row";
+                    nav.style.flexWrap="wrap";
+
+                    isScrolled = true;
+                }
+            } else {
+                header.style.padding = "1em 0";
+                header.style.height = "auto";
+                header.style.flexDirection = "column";
+                nav.style.flexWrap="nowrap";
+
+                isScrolled = false;
+            }
+        }
+    </script>
+</body>
+</html>
