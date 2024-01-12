@@ -106,7 +106,12 @@ function generatePreview(){
     </div>`
     }
 
-    
+    if(document.getElementById('lang').checked){
+        document.getElementById('langu').innerText='English'
+    }
+    else{
+        document.getElementById('langu').innerText='Hungarian'
+    }
 
     const ad = document.getElementById('addresses')
     ad.innerText=''
