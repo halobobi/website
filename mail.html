@@ -5,25 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles.css">
     <title>Website - Halosite - Webbobi - Halobobi</title>
-    <script src="./js/scroll.js"></script>
-    
 </head>
 <body>
     <header>
-        <h1>Your Advanced Website</h1>
-        <nav>
-            <a href="https://www.andrasbiro.work/home">Homepage</a>
-            <a href="https://www.andrasbiro.work/mail" id="active">Mail</a>
+        <h1>Homepage</h1>
+        <div id="menu-icon">☰</div>
+        <nav class="hidden">
+            <a href="https://www.andrasbiro.work/index" id="active">Homepage</a>
+            <a href="https://www.andrasbiro.work/mail">Mail</a>
             <a href="https://www.andrasbiro.work/halobobi">Halobobi</a>
             <a href="https://www.andrasbiro.work/contact">Contact</a>
         </nav>
     </header>
-
     <section>
-        <form action="https://api.laandro3.workers.dev/api/handle" method="post">
-            <label for="name">Név: <input type="text" name="name" id="name"></label>
-            <input type="submit" value="Submit">
+        <h2 class="warning">Password required!</h2>
+    </section>
+    <section>
+        <h2>LOGIN</h2>
+        <section>
+        <form action="https://mail.andrasbiro.work/api/handle" method="post">
+            <label for="pw">Password: </label><input type="password" name="password" id="pw">
+            <br><input class="submit" type="submit" value="Submit">
         </form>
     </section>
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Your Advanced Website. All rights reserved.</p>
+    </footer>
 </body>
+<script src="./js/page.js"></script>
 </html>
