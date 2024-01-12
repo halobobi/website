@@ -17,16 +17,13 @@ for (let index = 1; index < 5; index++) {
 function addNew(){
     console.log(emailc)
     emailc++
-    let lab = document.createElement(`label`)
-    lab.htmlFor=`email+${emailc}`
-    lab.innerText=`+${emailc}`
     let inp = document.createElement(`input`)
     inp.type=`email`
     inp.name=`email+${emailc}`
     inp.id=`email+${emailc}`
+    inp.placeholder='Email'
     const es=document.getElementById('emails')
     es.appendChild(document.createElement('br'))
-    es.appendChild(lab)
     es.appendChild(inp)
     inp.addEventListener('input',generatePreview)
 }
@@ -131,7 +128,9 @@ function generatePreview(){
     if(foname!=''){
         btn.innerText=foname
     }
-    else{
+    else if(fourl.length>25||fourl==''){
         btn.innerText=fourl.substring(0,10)+'...'+fourl.substring(fourl.length-10,fourl.length)
+    }else{
+        btn.innerText=fourl
     }
 }
