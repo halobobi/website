@@ -24,9 +24,7 @@ function toggleMenu(){
         nav.classList.remove('hidden')
         isMenuOpen = true
         icon.innerText="✖";
-    }
-    
-    
+    }  
 }
 
 function scrollPC() {
