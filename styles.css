@@ -190,7 +190,7 @@ footer {
     left: 7px;
     bottom: 4px;
     background-color: white;
-    -webkit-transition: .4s;
+    -webkit-transition:.4s;
     transition: .4s;
   }
   
@@ -203,7 +203,7 @@ footer {
   }
   
   input:checked + .slider:before {
-    -webkit-transform: translateX(26px);
+    -webkit-transform:translateX(26px);
     -ms-transform: translateX(26px);
     transform: translateX(26px);
   }
@@ -214,7 +214,7 @@ footer {
   }
   
   .slider.round:before {
-    border-radius: 50%;
+    border-radius:50%;
   }
 
 @media only screen and (max-width: 600px) {
