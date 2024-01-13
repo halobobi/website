@@ -293,11 +293,7 @@ footer {
     border-radius:50%;
   }
 
-@media only screen and (min-height:840px){
-    footer{
-        position: absolute;
-    }
-}
+
 
 @media only screen and (max-width: 1150px) {
     body div{
