@@ -104,10 +104,10 @@ function generatePreview(){
     }
 
     if(document.getElementById('lang').checked){
-        document.getElementById('langu').innerText='English'
+        document.getElementById('langu').innerText='EN - English'
     }
     else{
-        document.getElementById('langu').innerText='Hungarian'
+        document.getElementById('langu').innerText='HU - Hungarian'
     }
 
     const ad = document.getElementById('addresses')
