@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <section>
+        <h4>Request:</h4>
+        <p>Send request received: ${respintime[0]} (${respintime[1]})</p>
+        <p>POST request body: ${obj}</p>
+    </section>
+    <section>
+        <h4>Shared item:</h4>
+        <p>Name: ${fname}</p>
+        <p>Url: ${furl}</p>
+    </section>
+    <section>
+        <h4>Emails: </h4>
+        <table style="border:1px solid black;border-collapse: collapse;">
+            <tr style="border:1px solid black">
+                <td rowspan="2" style="border:1px solid black; padding:10px;">Email address</td>
+                <td colspan="2" style="border:1px solid black; padding:10px;">Request sent</td>
+                <td colspan="2" style="border:1px solid black; padding:10px;">Response received</td>
+                <td rowspan="2" style="border:1px solid black; padding:10px;">Response</td>
+            </tr>
+            <tr style="border:1px solid black">
+                <td style="border:1px solid black; padding:10px;">EN</td>
+                <td style="border:1px solid black; padding:10px;">HU</td>
+                <td style="border:1px solid black; padding:10px;">EN</td>
+                <td style="border:1px solid black; padding:10px;">HU</td>
+            </tr>
+            $(etable)
+        </table>
+        <p>Language: ${lang}</p>
+    </section>
+    <section>
+        <h4>System:</h4>
+    <p>This email was sent at ${new Date().toLocaleTimeString('en-EN', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        fractionalSecondDigits: 3,
+        timeZoneName: 'short',
+        timeZone: 'Europe/Budapest', // Set the time zone to Hungarian time
+      })} (${new Date().toLocaleTimeString('hu-HU', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        fractionalSecondDigits: 3,
+        timeZoneName: 'short',
+        timeZone: 'Europe/Budapest', // Set the time zone to Hungarian time
+      })})</p>
+
+    </section>
+</body>
+</html>

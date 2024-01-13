@@ -73,8 +73,10 @@ function generatePreview(){
                     href="mailto:#"
                     target="_blank">#</a></b>. </p>
         <p> Sender: <b><a href="mailto:sharing@mail.andrasbiro.work" target="_blank">sharing@mail.andrasbiro.work</a></b>. </p>
-        <p><b>If you received this email and you are not the intended recipient immediately notify the sender and disregard this email!</b></p>
-            <p>This email address does receive emails. Should you have any issue reply to this email.</p>
+        <p><b>If you received this email and you are not the intended recipient notify the sender immediately and
+                    disregard this email!</b></p>
+            <p><b>This email contains sensitive information! Unauthorised access is forbidden!</b></p>
+            <p>This email address does receive emails. Should you have any issue, please reply to this email.</p>
     </div>`
     }else{
         document.getElementById('cont').innerHTML=`<div style="margin-left:auto;margin-right:auto;width:80%;; border-bottom: lightgray 1px solid;">
@@ -97,9 +99,9 @@ function generatePreview(){
                     href="mailto:#"
                     target="_blank">#</a></b>. </p>
         <p> Az e-mail feladója: <b><a href="mailto:sharing@mail.andrasbiro.work" target="_blank">sharing@mail.andrasbiro.work</a></b>. </p>
-        <p><b>Figyelem! Amennyiben nem Ön a címzett, hagyja figyelmen kívül ezt az e-mailt és haladéktalanul értesítse a
-                feladót!</b></p>
-        <p> Ez az e-mail cím fogad válaszokat. Probléma esetén erre az e-mailre válaszoljon. </p>
+        <p><b>Amennyiben nem Ön a címzett, haladéktalanul értesítse a feladót és hagyja figyelmen kívül ezt az e-mailt!</b></p>
+                    <p><b>Ez is email bizalmas információkat tartalmaz! Az illetéktelen hozzáférés nem engedélyezett!</b></p>
+            <p> Ez az e-mail cím fogad válaszokat. Probléma esetén erre az e-mailre válaszoljon. </p>
     </div>`
     }
 
