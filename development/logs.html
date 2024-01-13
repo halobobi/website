@@ -36,29 +36,7 @@
     </section>
     <section>
         <h4>System:</h4>
-    <p>This email was sent at ${new Date().toLocaleTimeString('en-EN', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        fractionalSecondDigits: 3,
-        timeZoneName: 'short',
-        timeZone: 'Europe/Budapest', // Set the time zone to Hungarian time
-      })} (${new Date().toLocaleTimeString('hu-HU', {
-        weekday: 'long',
-        year: 'numeric',
-        month: 'long',
-        day: 'numeric',
-        hour: 'numeric',
-        minute: 'numeric',
-        second: 'numeric',
-        fractionalSecondDigits: 3,
-        timeZoneName: 'short',
-        timeZone: 'Europe/Budapest', // Set the time zone to Hungarian time
-      })})</p>
+    <p>This email was sent at ${localen} (${localhu})</p>
 
     </section>
 </body>
