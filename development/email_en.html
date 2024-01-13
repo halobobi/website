@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+    <div id='cont'
+        style="font-style: Raleway, sans-serif, Arial;text-align:center;font-size: 20px;margin-left:auto;margin-right:auto;padding-bottom:10px;width:70%;background-color: white;border: lightgray 1.5px solid;border-radius: 15px;">
+        <div style="margin-left:auto;margin-right:auto;width:80%;; border-bottom: lightgray 1px solid;">
+            <h3> <i>Dear Recipient!</i> </h3>
+            <p style="text-align:center;">You have received this email, because</p>
+            <p> <b><i>András Lajos Biró</i></b> </p>
+            <p> has shared the following item with you: </p>
+            <p> </p>
+            <p>
+                <a style="display:block;margin-left:auto;margin-right:auto;padding:10px;width:fit-content;max-width:85%;background-color: #30b891; border-radius: 5px;color: white; text-decoration: none; word-wrap: break-word;"
+                    href="${furl}" target="_blank">${fname}</a>
+            </p>
+            <p style="font-size: 12px;">
+                In case of this email displays incorrectly, please click <a href="${furl}" target="_blank">here</a>.
+            </p>
+        </div>
+        <div style="font-size: 10px;margin-left:auto;margin-right:auto;width:80%">
+            <p> This email was sent automatically, all links use the <i>https</i> protocol. </p>
+            <p> Recipient: <b><a href="mailto:${element.email}" target="_blank">${element.email}</a></b>. </p>
+            <p> Sender: <b><a href="mailto:sharing@mail.andrasbiro.work"
+                        target="_blank">sharing@mail.andrasbiro.work</a></b>. </p>
+            <p><b>If you received this email and you are not the intended recipient notify the sender immediately and
+                    disregard this email!</b></p>
+            <p><b>This email contains sensitive information! Unauthorised access is forbidden!</b></p>
+            <p>This email address does receive emails. Should you have any issue, please reply to this email.</p>
+        </div>
+    </div>
+</body>
+</html>
