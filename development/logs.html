@@ -9,6 +9,58 @@
         <h4>Request:</h4>
         <p>Send request received: ${respintime[0]} (${respintime[1]})</p>
         <p>POST request body: ${JSON.stringify(obj)}</p>
+        <p>Connection details:
+            <table>
+                <tr>
+                    <td>Connecting IPv6</td>
+                    <td>${request.headers['cf-connecting-ip']}</td>
+                </tr>
+                <tr>
+                    <td>Real IPv6</td>
+                    <td>${request.headers['x-real-ip']}</td>
+                </tr>
+                <tr>
+                    <td>Platform</td>
+                    <td>${request.headers['sec-ch-ua-platform']}</td>
+                </tr>
+                <tr>
+                    <td>User agent</td>
+                    <td>${request.headers['user-agent']}</td>
+                </tr>
+                <tr>
+                    <td>Browser</td>
+                    <td>${request.headers['sec-ch-ua']}</td>
+                </tr>
+                <tr>
+                    <td>Provider</td>
+                    <td>${request.cf.asOrganization}</td>
+                </tr>
+                <tr>
+                    <td>Continent</td>
+                    <td>${request.cf.continent}</td>
+                </tr>
+                <tr>
+                    <td>Country</td>
+                    <td>${request.cf.country}</td>
+                </tr>
+                <tr>
+                    <td>Region - Region code</td>
+                    <td>${request.cf.region} - ${request.cf.regionCode}</td>
+                </tr>
+                <tr>
+                    <td>Postal code</td>
+                    <td>${request.cf.postalCode}</td>
+                </tr>
+                <tr>
+                    <td>City</td>
+                    <td>${request.cf.city}</td>
+                </tr>
+                <tr>
+                    <td>Area on Google Maps</td>
+                    <td><a href="https://www.google.com/maps/place/${request.cf.latitude},+${request.cf.longitude}">${request.cf.latitude} ${request.cf.longitude}</a></td>
+                </tr>
+            </table>
+        </p>
     </section>
     <section>
         <h4>Shared item:</h4>
