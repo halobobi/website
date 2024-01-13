@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="refresh" content="10; url = https://www.andrasbiro.work/mail" /> 
+    <meta http-equiv="refresh" content="5; url = https://www.andrasbiro.work/mail" /> 
     <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Raleway">
     <link rel="stylesheet" href="https://www.andrasbiro.work/styles.css">
     <title>Sharing - Andras Biro</title>
@@ -21,6 +21,8 @@
     </header>
     <section>
         <h2>Emails successfully sent. You will be redirected shortly...</h2>
+        <p id="resp">Response: ${JSON.stringify(resps)}</p>
+        <input type="button" id="copy" value="Copy response">
     </section>
 
     <footer>
@@ -28,4 +30,5 @@
     </footer>
 </body>
 <script src="https://www.andrasbiro.work/js/page.js"></script>
+<script src="./js/copy.js"></script>
 </html>
