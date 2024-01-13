@@ -189,7 +189,7 @@ span#success{
 }
 
 span#success.visible{
-    font-size:large;
+    font-size: large;
 }
 
 input::placeholder{
