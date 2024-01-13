@@ -13,23 +13,23 @@
             <table style="border:1px solid black;border-collapse: collapse;text-align: center;">
                 <tr style="border:1px solid black">
                     <td style="border:1px solid black; padding:10px;">Connecting IPv6</td>
-                    <td style="border:1px solid black; padding:10px;">${request.headers['cf-connecting-ip']}</td>
+                    <td style="border:1px solid black; padding:10px;">${request['headers']['cf-connecting-ip']}</td>
                 </tr>
                 <tr style="border:1px solid black">
                     <td style="border:1px solid black; padding:10px;">Real IPv6</td>
-                    <td style="border:1px solid black; padding:10px;">${request.headers['x-real-ip']}</td>
+                    <td style="border:1px solid black; padding:10px;">${request['headers']['x-real-ip']}</td>
                 </tr>
                 <tr style="border:1px solid black">
                     <td style="border:1px solid black; padding:10px;">Platform</td>
-                    <td style="border:1px solid black; padding:10px;">${request.headers['sec-ch-ua-platform']}</td>
+                    <td style="border:1px solid black; padding:10px;">${request['headers']['sec-ch-ua-platform']}</td>
                 </tr>
                 <tr style="border:1px solid black">
                     <td style="border:1px solid black; padding:10px;">User agent</td>
-                    <td style="border:1px solid black; padding:10px;">${request.headers['user-agent']}</td>
+                    <td style="border:1px solid black; padding:10px;">${request['headers']['user-agent']}</td>
                 </tr>
                 <tr style="border:1px solid black">
                     <td style="border:1px solid black; padding:10px;">Browser</td>
-                    <td style="border:1px solid black; padding:10px;">${request.headers['sec-ch-ua']}</td>
+                    <td style="border:1px solid black; padding:10px;">${request['headers']['sec-ch-ua']}</td>
                 </tr>
                 <tr style="border:1px solid black">
                     <td style="border:1px solid black; padding:10px;">Provider</td>
