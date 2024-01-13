@@ -183,6 +183,14 @@ span#langu{
     font-weight: bold;
 }
 
+span#success{
+    font-size:0;
+    transition: font-size 0.3s;
+}
+
+span#success.visible{
+    font-size:large;
+}
 
 input::placeholder{
     position: absolute;
