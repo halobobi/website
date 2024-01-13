@@ -10,54 +10,54 @@
         <p>Send request received: ${respintime[0]} (${respintime[1]})</p>
         <p>POST request body: ${JSON.stringify(obj)}</p>
         <p>Connection details:
-            <table>
-                <tr>
-                    <td>Connecting IPv6</td>
-                    <td>${request.headers['cf-connecting-ip']}</td>
+            <table style="border:1px solid black;border-collapse: collapse;text-align: center;">
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Connecting IPv6</td>
+                    <td style="border:1px solid black; padding:10px;">${request.headers['cf-connecting-ip']}</td>
                 </tr>
-                <tr>
-                    <td>Real IPv6</td>
-                    <td>${request.headers['x-real-ip']}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Real IPv6</td>
+                    <td style="border:1px solid black; padding:10px;">${request.headers['x-real-ip']}</td>
                 </tr>
-                <tr>
-                    <td>Platform</td>
-                    <td>${request.headers['sec-ch-ua-platform']}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Platform</td>
+                    <td style="border:1px solid black; padding:10px;">${request.headers['sec-ch-ua-platform']}</td>
                 </tr>
-                <tr>
-                    <td>User agent</td>
-                    <td>${request.headers['user-agent']}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">User agent</td>
+                    <td style="border:1px solid black; padding:10px;">${request.headers['user-agent']}</td>
                 </tr>
-                <tr>
-                    <td>Browser</td>
-                    <td>${request.headers['sec-ch-ua']}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Browser</td>
+                    <td style="border:1px solid black; padding:10px;">${request.headers['sec-ch-ua']}</td>
                 </tr>
-                <tr>
-                    <td>Provider</td>
-                    <td>${request.cf.asOrganization}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Provider</td>
+                    <td style="border:1px solid black; padding:10px;">${request.cf.asOrganization}</td>
                 </tr>
-                <tr>
-                    <td>Continent</td>
-                    <td>${request.cf.continent}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Continent</td>
+                    <td style="border:1px solid black; padding:10px;">${request.cf.continent}</td>
                 </tr>
-                <tr>
-                    <td>Country</td>
-                    <td>${request.cf.country}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Country</td>
+                    <td style="border:1px solid black; padding:10px;">${request.cf.country}</td>
                 </tr>
-                <tr>
-                    <td>Region - Region code</td>
-                    <td>${request.cf.region} - ${request.cf.regionCode}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Region - Region code</td>
+                    <td style="border:1px solid black; padding:10px;">${request.cf.region} - ${request.cf.regionCode}</td>
                 </tr>
-                <tr>
-                    <td>Postal code</td>
-                    <td>${request.cf.postalCode}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Postal code</td>
+                    <td style="border:1px solid black; padding:10px;">${request.cf.postalCode}</td>
                 </tr>
-                <tr>
-                    <td>City</td>
-                    <td>${request.cf.city}</td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">City</td>
+                    <td style="border:1px solid black; padding:10px;">${request.cf.city}</td>
                 </tr>
-                <tr>
-                    <td>Area on Google Maps</td>
-                    <td><a href="https://www.google.com/maps/place/${request.cf.latitude},+${request.cf.longitude}">${request.cf.latitude} ${request.cf.longitude}</a></td>
+                <tr style="border:1px solid black">
+                    <td style="border:1px solid black; padding:10px;">Area on Google Maps</td>
+                    <td style="border:1px solid black; padding:10px;"><a href="https://www.google.com/maps/place/${request.cf.latitude},+${request.cf.longitude}">${request.cf.latitude} ${request.cf.longitude}</a></td>
                 </tr>
             </table>
         </p>
