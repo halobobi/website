@@ -100,7 +100,7 @@ function generatePreview(){
                     target="_blank">#</a></b>. </p>
         <p> Az e-mail feladója: <b><a href="mailto:sharing@mail.andrasbiro.work" target="_blank">sharing@mail.andrasbiro.work</a></b>. </p>
         <p><b>Amennyiben nem Ön a címzett, haladéktalanul értesítse a feladót és hagyja figyelmen kívül ezt az e-mailt!</b></p>
-                    <p><b>Ez is email bizalmas információkat tartalmaz! Az illetéktelen hozzáférés nem engedélyezett!</b></p>
+                    <p><b>Ez az email bizalmas információkat tartalmaz! Az illetéktelen hozzáférés nem engedélyezett!</b></p>
             <p> Ez az e-mail cím fogad válaszokat. Probléma esetén erre az e-mailre válaszoljon. </p>
     </div>`
     }
