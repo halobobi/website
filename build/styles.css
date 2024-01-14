@@ -64,6 +64,7 @@ footer {
 header.scroll{
     padding: 0.5em 0;
     flex-direction:row;
+    height:80px;
 }
 
 nav {
@@ -303,9 +304,6 @@ input:checked + .slider:before {
 @media only screen and (max-width: 1150px) {
     div.content section{
         width: 90%;
-    }
-    header.scroll{
-        padding:0.9em 0;
     }
     div.formdiv{
         flex-direction: column-reverse;
