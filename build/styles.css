@@ -120,7 +120,7 @@ ul{
 ul li{
     text-align: left;
 }
-div#content{
+div.content{
     display: flex;
     flex-direction: column;
     min-height: 80vh;
@@ -135,6 +135,7 @@ section div{
 }
 div.formdiv section{
     min-width: 40%;
+    max-width: 45%;
 }
 
 section section {
@@ -332,6 +333,7 @@ input:checked + .slider:before {
     }
     body{
         padding-top:50px;
+        font-size: medium;
     }
     article{
         max-width: 90%;
