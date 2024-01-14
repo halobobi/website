@@ -52,6 +52,13 @@ header {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
+    height: 107px;
+}
+
+footer {
+    bottom: 0;
+    position: relative;
+    height: 57px;
 }
 header.scroll{
     padding: 0.5em 0;
@@ -225,11 +232,6 @@ form article{
 
 form section button{
     align-self: center;
-}
-
-footer {
-    bottom: 0;
-    position: relative;
 }
 
 /* The switch - the box around the slider */
