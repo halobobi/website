@@ -308,6 +308,9 @@ input:checked + .slider:before {
         min-width: 90%;
         max-width: 90%;
     }
+    div.content{
+        margin-top: 50px;
+    }
     header.scroll{
         padding:0.9em 0;
     }
