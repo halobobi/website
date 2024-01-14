@@ -142,8 +142,7 @@ section div{
     display:block;
 }
 div.formdiv section{
-    min-width: 40%;
-    max-width: 45%;
+    width: 45%;
 }
 
 section section {
@@ -302,7 +301,7 @@ input:checked + .slider:before {
 }
 
 @media only screen and (max-width: 1150px) {
-    div section{
+    div.content section{
         width: 90%;
     }
     header.scroll{
@@ -336,9 +335,6 @@ input:checked + .slider:before {
     article{
         max-width: 90%;
         min-width: 75%;
-    }
-    div section{
-        width: 90%;
     }
     section{
         max-width: 90%;
