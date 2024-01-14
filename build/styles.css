@@ -331,7 +331,7 @@ input:checked + .slider:before {
     }
     
     div.content{
-        padding-top: 50px;
+        padding-top: 75px;
     }
     article{
         max-width: 90%;
