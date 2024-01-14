@@ -131,7 +131,7 @@ ul li{
 div.content{
     display:flex;
     flex-direction: column;
-    margin-top:150px;
+    padding-top:150px;
 }
 div.formdiv{
     display: flex;
@@ -331,7 +331,7 @@ input:checked + .slider:before {
     }
     
     div.content{
-        margin-top: 50px;
+        padding-top: 50px;
     }
     article{
         max-width: 90%;
