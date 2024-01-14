@@ -230,7 +230,6 @@ form section button{
 footer {
     bottom: 0;
     position: relative;
-    max-height: 150px;
 }
 
 /* The switch - the box around the slider */
