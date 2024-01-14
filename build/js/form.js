@@ -120,10 +120,10 @@ function generatePreview(){
         ad.appendChild(li)
     }
     if (ad.innerText==''){
-        document.getElementById('noads').classList.add('noad')
+        document.getElementById('noad').classList.remove('ads')
     }
     else{
-        document.getElementById('noads').classList.remove('noad')
+        document.getElementById('noad').classList.add('ads')
     }
 
     const foname= document.getElementById('fname').value
