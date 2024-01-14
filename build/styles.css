@@ -136,7 +136,7 @@ div#content{
 section div{
     display:block;
 }
-div section{
+div.formdiv section{
     min-width: 40%;
 }
 
@@ -145,7 +145,7 @@ section section {
     min-width: 70%;
 }
 
-section form section{
+div.formdiv section form section{
     min-width: 70%;
 }
 
