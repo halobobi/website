@@ -100,7 +100,7 @@ nav #active {
 
 section{
     width: 60%;
-    margin: 50px auto;
+    margin: 5vh auto;
     padding: 20px;
     background-color: rgba(169, 205, 255, 0.4);
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
