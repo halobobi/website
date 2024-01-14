@@ -1,43 +1,21 @@
-let emailc = 0;
-
-let emailbodyen
-let emailbodyhu
-
-fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(response=>{return response.text()}).then(result=>{emailbodyen=result})
-fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(response=>{return response.text()}).then(result=>{emailbodyhu=result})
-
-addNew()
-
-document.getElementById('add').addEventListener('click',addNew)
-
-generatePreview()
-
-document.getElementById(`furl`).addEventListener('input',generatePreview)
-document.getElementById(`fname`).addEventListener('input',generatePreview) 
-document.getElementById(`lang`).addEventListener('input',generatePreview)  
-
-for (let index = 1; index < 5; index++) {
-    document.getElementById(`email${index}`).addEventListener('input',generatePreview)   
-}
-
-function addNew(){
+function addNew() {
     console.log(emailc)
     emailc++
     let inp = document.createElement(`input`)
-    inp.type=`email`
-    inp.name=`email+${emailc}`
-    inp.id=`email+${emailc}`
-    inp.placeholder='Email'
-    const es=document.getElementById('emails')
+    inp.type = `email`
+    inp.name = `email+${emailc}`
+    inp.id = `email+${emailc}`
+    inp.placeholder = 'Email'
+    const es = document.getElementById('emails')
     es.appendChild(document.createElement('br'))
     es.appendChild(inp)
-    inp.addEventListener('input',generatePreview)
+    inp.addEventListener('input', generatePreview)
 }
 
-function generatePreview(){
+function generatePreview() {
     let eads = []
     for (let index = 1; index < 5; index++) {
-        if (document.getElementById(`email${index}`).checked){
+        if (document.getElementById(`email${index}`).checked) {
             switch (index) {
                 case 1:
                     eads.push('orosz.hanna.07.25@gmail.com')
@@ -54,13 +32,13 @@ function generatePreview(){
             }
         }
     }
-    for (let index = 1; index < emailc+1; index++) {
-        const v= document.getElementById(`email+${index}`).value
-        if(v!=''){eads.push(v)}
+    for (let index = 1; index < emailc + 1; index++) {
+        const v = document.getElementById(`email+${index}`).value
+        if (v != '') { eads.push(v) }
     }
 
-    let foname= document.getElementById('fname').value
-    const fourl= document.getElementById('furl').value
+    let foname = document.getElementById('fname').value
+    const fourl = document.getElementById('furl').value
 
     if (foname == undefined || foname == '') {
         foname = fourl
@@ -69,20 +47,20 @@ function generatePreview(){
 
     let emailb
 
-    if(emailbodyen==undefined){
+    if (emailbodyen == undefined) {
         console.log('RIP')
     }
 
-    if(document.getElementById('lang').checked){
-        document.getElementById('langu').innerText='EN - English'
-        emailb=emailbodyen
-    }else{
-        document.getElementById('langu').innerText='HU - Hungarian'
-        emailb=emailbodyhu
-        
+    if (document.getElementById('lang').checked) {
+        document.getElementById('langu').innerText = 'EN - English'
+        emailb = emailbodyen
+    } else {
+        document.getElementById('langu').innerText = 'HU - Hungarian'
+        emailb = emailbodyhu
+
     }
-    
-    document.getElementById('cont').innerHTML=emailb
+
+    document.getElementById('cont').innerHTML = emailb
         .replace('${furl}', fourl)
         .replace('${furl}', fourl)
         .replace('${fname}', foname)
@@ -90,16 +68,48 @@ function generatePreview(){
         .replace('${element.email}', '#')
 
     const ad = document.getElementById('addresses')
-    ad.innerText=''
+    ad.innerText = ''
     for (let index = 0; index < eads.length; index++) {
         let li = document.createElement('li')
-        li.innerText=eads[index]
+        li.innerText = eads[index]
         ad.appendChild(li)
     }
-    if (ad.innerText==''){
+    if (ad.innerText == '') {
         document.getElementById('noad').classList.remove('ads')
     }
-    else{
+    else {
         document.getElementById('noad').classList.add('ads')
     }
 }
+
+function finishEN(result) {
+    emailbodyen = result
+    fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(response => { return response.text() }).then(result => finishHU)
+}
+
+function finishHU(result) {
+    addNew()
+
+    document.getElementById('add').addEventListener('click', addNew)
+
+    generatePreview()
+
+    document.getElementById(`furl`).addEventListener('input', generatePreview)
+    document.getElementById(`fname`).addEventListener('input', generatePreview)
+    document.getElementById(`lang`).addEventListener('input', generatePreview)
+
+    for (let index = 1; index < 5; index++) {
+        document.getElementById(`email${index}`).addEventListener('input', generatePreview)
+    }
+}
+
+let emailc = 0;
+
+
+let emailbodyen
+let emailbodyhu
+
+fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(response => { return response.text() }).then(result => finishEN)
+
+
+
