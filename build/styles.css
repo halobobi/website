@@ -131,8 +131,6 @@ ul li{
 div.content{
     display:flex;
     flex-direction: column;
-    justify-content: space-between;
-    height: 100%;
     margin-top:150px;
 }
 div.formdiv{
