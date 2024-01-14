@@ -4,6 +4,7 @@ html{
 body {
     display: flex;
     justify-content: space-between;
+    flex-direction: column;
     font-family: 'Raleway','Arial', sans-serif;
     font-size:large;
     margin: 0;
