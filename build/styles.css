@@ -60,7 +60,6 @@ header {
 
 footer {
     bottom: 0;
-    position: relative;
     height: 57px;
 }
 header.scroll{
