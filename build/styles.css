@@ -127,6 +127,9 @@ ul{
 ul li{
     text-align: left;
 }
+div.content{
+    height: 100%;
+}
 div.formdiv{
     display: flex;
     justify-content: space-around;
