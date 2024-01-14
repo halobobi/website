@@ -327,11 +327,9 @@ input:checked + .slider:before {
     header{
         padding:0.9em 0;
         flex-direction: row;
-        max-height: 40px;
-        min-height: 40px;
+        height:40px;
     }
     body{
-        padding-top:50px;
         font-size: medium;
     }
     article{
@@ -339,18 +337,17 @@ input:checked + .slider:before {
         min-width: 75%;
     }
     div section{
-        min-width: 90%;
-        max-width: 90%;
+        width: 90%;
     }
     section{
         max-width: 90%;
     }
     nav{
-        margin-top:306px;
+        margin-top:312px;
         padding:0;
         position:fixed;
         flex-direction: column;
-        background-color: rgba(0, 123, 255, 0.9);
+        background-color: rgba(0, 123, 255, 0.95);
         width:100%;
     }
     nav.hidden{
