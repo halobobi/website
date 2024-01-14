@@ -91,7 +91,7 @@ nav #active {
 }
 
 section{
-    max-width: 60%;
+    width: 60%;
     margin: 50px auto;
     padding: 20px;
     background-color: rgba(169, 205, 255, 0.4);
