@@ -1,20 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet"href="https://fonts.googleapis.com/css2?family=Raleway">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway">
     <link rel="stylesheet" href="https://www.andrasbiro.work/styles.css">
     <link rel="icon" type="image/x-icon" href="https://www.andrasbiro.work/favicon.ico">
-    <style>
-        @media only screen and (((min-height:720px) and (max-width: 750px)) or (min-height:760px)){
-            footer{
-                position: absolute;
-            }
-        }
-    </style>
     <title>Sharing - Andras Biro</title>
 </head>
+
 <body>
     <header>
         <h1>Sharing</h1>
@@ -26,22 +21,24 @@
             <a href="https://www.andrasbiro.work/contact">Contact</a>
         </nav>
     </header>
-    <section>
-        <h2 class="warning">Password required!</h2>
-    </section>
-    <section>
-        <h2>LOGIN</h2>
+    <div id="content">
         <section>
-        <form action="https://mail.andrasbiro.work/api/handle" method="post">
-            <input type="password" name="_pw" id="pw" placeholder="Password" required>
-            <br><input class="submit" type="submit" value="Submit">
-        </form>
-    </section>
-    </section>
-
+            <h2 class="warning">Password required!</h2>
+        </section>
+        <section>
+            <h2>LOGIN</h2>
+            <section>
+                <form action="https://mail.andrasbiro.work/api/handle" method="post">
+                    <input type="password" name="_pw" id="pw" placeholder="Password" required>
+                    <br><input class="submit" type="submit" value="Submit">
+                </form>
+            </section>
+        </section>
+    </div>
     <footer>
         <p>2024 &copy; András Biró – All rights reserved.</p>
     </footer>
 </body>
 <script src="https://www.andrasbiro.work/js/page.js"></script>
+
 </html>
