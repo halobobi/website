@@ -120,18 +120,16 @@ ul{
 ul li{
     text-align: left;
 }
-div.formdiv{
-    display: flex;
-    justify-content: space-around;
-    flex-direction: row;
-}
-
 div#content{
     display: flex;
     flex-direction: column;
     min-height: 80vh;
 }
-
+div.formdiv{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+}
 section div{
     display:block;
 }
