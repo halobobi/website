@@ -1,7 +1,10 @@
 let emailc = 0;
 
-let emailbodyen=await await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').text()
-let emailbodyhu=await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html')).text()
+let emailbodyen
+let emailbodyhu
+
+fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(response=>{return response.text()}).then(result=>{emailbodyen=result})
+fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(response=>{return response.text()}).then(result=>{emailbodyhu=result})
 
 addNew()
 
@@ -65,6 +68,10 @@ function generatePreview(){
     }
 
     let emailb
+
+    if(emailbodyen==undefined){
+        console.log('RIP')
+    }
 
     if(document.getElementById('lang').checked){
         document.getElementById('langu').innerText='EN - English'
