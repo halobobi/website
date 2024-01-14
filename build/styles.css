@@ -2,6 +2,8 @@ html{
     scroll-behavior: smooth;
 }
 body {
+    display: flex;
+    justify-content: space-between;
     font-family: 'Raleway','Arial', sans-serif;
     font-size:large;
     margin: 0;
@@ -126,11 +128,6 @@ ul{
 }
 ul li{
     text-align: left;
-}
-div.content{
-    display: flex;
-    flex-direction: column;
-    min-height: 80vh;
 }
 div.formdiv{
     display: flex;
