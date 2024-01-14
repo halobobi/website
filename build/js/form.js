@@ -84,10 +84,12 @@ function generatePreview() {
 
 function finishEN(result) {
     emailbodyen = result
-    fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(response => { return response.text() }).then(result => finishHU)
+    fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(response => { return response.text() }).then(result => {finishHU(result)})
 }
 
 function finishHU(result) {
+    emailbodyhu = result
+
     addNew()
 
     document.getElementById('add').addEventListener('click', addNew)
@@ -109,7 +111,7 @@ let emailc = 0;
 let emailbodyen
 let emailbodyhu
 
-fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(response => { return response.text() }).then(result => finishEN)
+fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(response => { return response.text() }).then(result => {finishEN(result)})
 
 
 
