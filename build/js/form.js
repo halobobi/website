@@ -120,7 +120,10 @@ function generatePreview(){
         ad.appendChild(li)
     }
     if (ad.innerText==''){
-        ad.innerText='There are no addresses selected!'
+        document.getElementById('noads').classList.add('noad')
+    }
+    else{
+        document.getElementById('noads').classList.remove('noad')
     }
 
     const foname= document.getElementById('fname').value
