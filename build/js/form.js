@@ -76,9 +76,10 @@ function generatePreview(){
         
     }
     
-    document.getElementById('cont').innerHTML=emailb.replaceAll('${furl}', fourl)
-        .replaceAll('${fname}', foname)
-        .replaceAll('${element.email}', '#')
+    document.getElementById('cont').innerHTML=emailb.replace('${furl}', fourl)
+        .replace('${fname}', foname)
+        .replace('${element.email}', '#')
+        .replace('${element.email}', '#')
 
     const ad = document.getElementById('addresses')
     ad.innerText=''
