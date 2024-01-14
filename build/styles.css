@@ -130,6 +130,7 @@ ul li{
 }
 div.content{
     height: 100%;
+    padding-top:120px;
 }
 div.formdiv{
     display: flex;
@@ -300,7 +301,7 @@ input:checked + .slider:before {
 }
 
 @media only screen and (max-width: 1150px) {
-    body div{
+    body div.content{
         display: flex;
         justify-content: space-around;
         flex-direction: column;
