@@ -344,7 +344,7 @@ input:checked + .slider:before {
         max-width: 90%;
     }
     nav{
-        margin-top:312px;
+        margin-top:309px;
         padding:0;
         position:fixed;
         flex-direction: column;
