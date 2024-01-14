@@ -1,6 +1,6 @@
 let emailc = 0;
 
-let emailbodyen=await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html')).text()
+let emailbodyen=await await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').text()
 let emailbodyhu=await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html')).text()
 
 addNew()
