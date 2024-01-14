@@ -121,6 +121,9 @@ article{
 p{
     text-align: center;
 }
+p#noad{
+    font-weight: bold;
+}
 p.ads{
     display: none;
 }

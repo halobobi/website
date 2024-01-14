@@ -1,5 +1,8 @@
 let emailc = 0;
 
+let emailbodyen=fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').text()
+let emailbodyhu=fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').text()
+
 addNew()
 
 document.getElementById('add').addEventListener('click',addNew)
@@ -53,64 +56,26 @@ function generatePreview(){
         if(v!=''){eads.push(v)}
     }
 
-    if(document.getElementById('lang').checked){
-        document.getElementById('cont').innerHTML=`<div style="margin-left:auto;margin-right:auto;width:80%;; border-bottom: lightgray 1px solid;">
-        <h3> <i>Dear Recipient!</i> </h3>
-        <p style="text-align:center;">You have received this email, because</p>
-        <p> <b><i>András Lajos Biró</i></b> </p>
-        <p> has shared the following item with you: </p>
-        <p> </p>
-        <p>
-            <a id="button-link" style="display:block;margin-left:auto;margin-right:auto;padding:10px;width:fit-content;max-width:85%;background-color: #30b891; border-radius: 5px;color: white; text-decoration: none; word-wrap: break-word;" href="#" target="_blank"></a>
-        </p>
-        <p style="font-size: 12px;">
-        In case of this email displays incorrectly, please click <a href="#" target="_blank">here</a>.
-        </p>
-    </div>
-    <div style="font-size: 10px;margin-left:auto;margin-right:auto;width:80%">
-        <p> This email was sent automatically, all links use the <i>https</i> protocol. </p>
-        <p> Recipient <b><a
-                    href="mailto:#"
-                    target="_blank">#</a></b>. </p>
-        <p> Sender: <b><a href="mailto:sharing@mail.andrasbiro.work" target="_blank">sharing@mail.andrasbiro.work</a></b>. </p>
-        <p><b>If you received this email and you are not the intended recipient notify the sender immediately and
-                    disregard this email!</b></p>
-            <p><b>This email contains sensitive information! Unauthorised access is forbidden!</b></p>
-            <p>This email address does receive emails. Should you have any issue, please reply to this email.</p>
-    </div>`
-    }else{
-        document.getElementById('cont').innerHTML=`<div style="margin-left:auto;margin-right:auto;width:80%;; border-bottom: lightgray 1px solid;">
-        <h3> <i>Kedves Címzett!</i> </h3>
-        <p style="text-align:center;"> Ezt az üzenetet azért kapta, mert </p>
-        <p> <b><i>Biró András Lajos</i></b> </p>
-        <p> megosztotta Önnel a következőt: </p>
-        <p> </p>
-        <p>
-            <a id="button-link" style="display:block;margin-left:auto;margin-right:auto;padding:10px;width:fit-content;max-width:85%;background-color: #30b891; border-radius: 5px;color: white; text-decoration: none; word-wrap: break-word;" href="#" target="_blank"></a>
-        </p>
-        <p style="font-size: 12px;">
-            Ha az üzenet helytelenül jelenne meg, kérem kattintson <a href="#" target="_blank">ide</a>.
-        </p>
-    </div>
-    <div style="font-size: 10px;margin-left:auto;margin-right:auto;width:80%">
-        <p> Jelen e-mail automatikusan készült, a benne található hivatkozások biztonságosak, <i>https</i> szabványt
-            használnak. </p>
-        <p> Az e-mail címzettje: <b><a
-                    href="mailto:#"
-                    target="_blank">#</a></b>. </p>
-        <p> Az e-mail feladója: <b><a href="mailto:sharing@mail.andrasbiro.work" target="_blank">sharing@mail.andrasbiro.work</a></b>. </p>
-        <p><b>Amennyiben nem Ön a címzett, haladéktalanul értesítse a feladót és hagyja figyelmen kívül ezt az e-mailt!</b></p>
-                    <p><b>Ez az email bizalmas információkat tartalmaz! Az illetéktelen hozzáférés nem engedélyezett!</b></p>
-            <p> Ez az e-mail cím fogad válaszokat. Probléma esetén erre az e-mailre válaszoljon. </p>
-    </div>`
+    let foname= document.getElementById('fname').value
+    const fourl= document.getElementById('furl').value
+
+    if (foname == undefined || foname == '') {
+        foname = fourl
+        if (fourl.length > 20) foname = fourl.substring(0, 10) + '...' + fourl.substring(fourl.length - 10, fourl.length)
     }
 
     if(document.getElementById('lang').checked){
         document.getElementById('langu').innerText='EN - English'
-    }
-    else{
+        emailb=emailbodyen
+    }else{
         document.getElementById('langu').innerText='HU - Hungarian'
+        emailb=emailbodyhu
+        
     }
+    
+    document.getElementById('cont').innerHTML=emailb.replaceAll('${furl}', fourl)
+        .replaceAll('${fname}', foname)
+        .replaceAll('${element.email}', '#')
 
     const ad = document.getElementById('addresses')
     ad.innerText=''
@@ -124,18 +89,5 @@ function generatePreview(){
     }
     else{
         document.getElementById('noad').classList.add('ads')
-    }
-
-    const foname= document.getElementById('fname').value
-    const fourl= document.getElementById('furl').value
-    const btn=document.getElementById("button-link")
-    btn.href=fourl
-    if(foname!=''){
-        btn.innerText=foname
-    }
-    else if(fourl.length>25||fourl==''){
-        btn.innerText=fourl.substring(0,10)+'...'+fourl.substring(fourl.length-10,fourl.length)
-    }else{
-        btn.innerText=fourl
     }
 }
