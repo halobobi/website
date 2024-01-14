@@ -67,6 +67,8 @@ function generatePreview(){
         if (fourl.length > 20) foname = fourl.substring(0, 10) + '...' + fourl.substring(fourl.length - 10, fourl.length)
     }
 
+    let emailb
+
     if(document.getElementById('lang').checked){
         document.getElementById('langu').innerText='EN - English'
         emailb=emailbodyen
@@ -76,7 +78,9 @@ function generatePreview(){
         
     }
     
-    document.getElementById('cont').innerHTML=emailb.replace('${furl}', fourl)
+    document.getElementById('cont').innerHTML=emailb
+        .replace('${furl}', fourl)
+        .replace('${furl}', fourl)
         .replace('${fname}', foname)
         .replace('${element.email}', '#')
         .replace('${element.email}', '#')
