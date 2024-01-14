@@ -3,8 +3,8 @@ let emailc = 0;
 let emailbodyen
 let emailbodyhu
 
-fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(value=>{emailbodyen=value})
-fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(value=>{emailbodyhu=value})
+fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(response=>{emailbodyen=response.text()})
+fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(response=>{emailbodyhu=response.text()})
 
 addNew()
 
