@@ -1,7 +1,7 @@
 let emailc = 0;
 
-let emailbodyen=fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').text()
-let emailbodyhu=fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').text()
+let emailbodyen=fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_en.html').then(resp=>resp.text())
+let emailbodyhu=fetch('https://raw.githubusercontent.com/halobobi/website/master/development/email_hu.html').then(resp=>resp.text())
 
 addNew()
 
