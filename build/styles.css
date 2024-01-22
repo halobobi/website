@@ -11,8 +11,6 @@ body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-size: cover;
-    background-position: center;
     color: #000000;
     overflow-x: hidden;
     transition: padding-top 0.3s;
