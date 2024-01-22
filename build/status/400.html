@@ -1,28 +1,59 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Error 400 - Bad request</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway">
     <style>
-        body{
-            font-family: 'Raleway','Arial', sans-serif;
-            background:url(www.andrasbiro.work/images/logo.png) 100% 5px no-repeat;
-            max-width:400px;
-            width: auto;
+        body {
+            font-family: 'Raleway', 'sans-serif', 'Arial';
+            max-width: 650px;
+            margin: 200px auto 0;
         }
+
+        img {
+            height: 200px;
+            margin: 5px;
+        }
+
+        #content {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+        }
+
+        #status {
+            border: 1px solid black;
+            padding: 5px;
+        }
+
         @media only screen and (max-width: 750px) {
-            body{
-                background:none;
+            body {
+                margin: auto;
+            }
+
+            img {
+                display: none;
             }
         }
     </style>
 </head>
+
 <body>
-    <div>
-        <p>We have got an error!</p>
-        <p>400 - Bad request.</p>
-        <p>The resource could not process the request.</p>
+    <div id="content">
+        <div>
+            <p><i>What do we have here?</i></p>
+            <p>Is it a bird? Is it a plane? No, it is a</p>
+            <div id="status">
+                <p><b>Status code 400 - Bad request.</b></p>
+                <p>The resource could not process the request.</p>
+            </div>
+        </div>
+        <img src="//www.andrasbiro.work/images/logo.png" alt="Website logo">
     </div>
+    <p>If this is API related, please refer to <a href="https://www.andrasbiro.work/apis">https://www.andrasbiro.work/apis</a></p>
 </body>
+
 </html>
