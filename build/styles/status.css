@@ -1,0 +1,31 @@
+body {
+    font-family: 'Raleway', 'sans-serif', 'Arial';
+    max-width: 550px;
+    margin: 5vw auto 0;
+}
+
+img {
+    height: 200px;
+    margin: 5px;
+}
+
+#content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#status {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+@media only screen and (max-width: 750px) {
+    body {
+        margin: 30px 50px;
+    }
+
+    img {
+        display: none;
+    }
+}
