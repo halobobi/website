@@ -1,99 +1,59 @@
+import func from './functions.js'
+
 export default {
 
-    async fetch(request, env, ctx) {
-  
+    async fetch(request, env, paths) {
+
         const headers = Object.fromEntries(request.headers)
-  
-        function currentTime(_lang = 0) {
-            let hu = new Date().toLocaleTimeString('hu-HU', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-                fractionalSecondDigits: 3,
-                timeZoneName: 'short',
-                timeZone: 'Europe/Budapest', // Set the time zone to Hungarian time
-            })
-            let en = new Date().toLocaleTimeString('en-EN', {
-                weekday: 'long',
-                year: 'numeric',
-                month: 'long',
-                day: 'numeric',
-                hour: 'numeric',
-                minute: 'numeric',
-                second: 'numeric',
-                fractionalSecondDigits: 3,
-                timeZoneName: 'short',
-                timeZone: 'Europe/Budapest', // Set the time zone to Hungarian time
-            })
-            switch (_lang) {
-                case 1:
-                    return en
-                case 2:
-                    return hu
-                default:
-                    return [en, hu]
-            }
-        }
-  
-        async function readRequestBody(request) {
-            const contentType = request.headers.get("content-type");
-            if (contentType.includes("application/json")) {
-                return JSON.stringify(await request.json());
-            } else if (contentType.includes("application/text")) {
-                return request.text();
-            } else if (contentType.includes("text/html")) {
-                return request.text();
-            } else if (contentType.includes("form")) {
-                const formData = await request.formData();
-                const body = {};
-                for (const entry of formData.entries()) {
-                    body[entry[0]] = entry[1];
+
+        switch (paths[1]) {
+
+            case 'form':
+
+                if (JSON.parse(await func.readRequestBody(request))._pw != env.API_PW) { return func.returnStatus('API error', 'Authentication failed based on provided credentials.', 401) }
+
+                let formhtml = await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/form.html')).text()
+                
+                let safePw,pw
+
+                do {
+                    let resp = await (await fetch('https://api.andrasbiro.work/totp')).json()
+
+                    pw = resp.response.validKeys[0]
+
+                    safePw = pw.substring(0, 5)
                 }
-                return JSON.stringify(body);
-            } else {
-                return new Response('Status: 400 - Bad request. Reason: Unidenfiable package.', { status: 400 });
-            }
-        }
-  
-        // You'll find it helpful to parse the request.url string into a URL object. Learn more at https://developer.mozilla.org/en-US/docs/Web/API/URL
-        const url = new URL(request.url);
-  
-        if (!url.pathname.startsWith("/api/") || (url.pathname.endsWith("/api/") || url.pathname.endsWith("/api"))) {
-            return Response.redirect('https://www.andrasbiro.work/mail');
-        } else if (url.pathname.endsWith('handle') || url.pathname.endsWith('handle/')) {
-            if (request.method === "POST") {
-                const reqBody = await readRequestBody(request);
+                while (await env.SYS_IDS.get(safePw) != null)
+
+                await env.SYS_IDS.put()
+
+                await env.SYS_IDS.put(safePw,pw,{expirationTtl: 600})
+
+                return new Response(
+                    formhtml.replace('${pw}', safePw),
+                    { headers: { "content-type": "text/html;charset=UTF-8" } })
+            case 'send':
+
+                const respintime = func.returnTime()
+                const reqBody = await func.readRequestBody(request)
+
                 let obj = JSON.parse(reqBody)
-                if (obj._pw == env.API_PW) {
-                    let formhtml = await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/form.html')).text()
-                    return new Response(formhtml, {
-                        headers: {
-                            "content-type": "text/html;charset=UTF-8",
-                        }
-                    });
-                }
-                else {
-                    return new Response('Authentication failed.')
-                }
-  
-            } else if (request.method === "GET") {
-                return new Response('Status: 400 - Bad request. Reason: GET requests are not handled.', { status: 400 });
-            }
-        }
-        else if (url.pathname.endsWith('send') || url.pathname.endsWith('send/')) {
-            const respintime = currentTime()
-            if (request.method === "POST") {
-                const reqBody = await readRequestBody(request);
-                let obj = JSON.parse(reqBody)
-                //return new Response(JSON.stringify(obj))
-                if (obj._pw != env.API_PW) {
-                    return new Response('Authentication failed.')
-                }
-  
+
+                const key=(await env.SYS_IDS.get(obj._pw))
+
+                if ( key == null) { return func.returnStatus('API error', 'System integrity identifier mismatch. Who are you?', 403) }
+
+                let validR = await (await fetch(`https://api.andrasbiro.work/totp?validKey=${key}`)).json()
+
+                let valid
+
+                if (validR.response.isValid === 'true') { valid = true }
+                else { valid = false }
+
+                if (!valid) { return func.returnStatus('API error', 'Failed to authenticate system integrity identifier as it had already expired.', 401) }
+
+                const formTime = func.returnTime(undefined, parseInt(validR.response.createTime))
+
                 const keys = Object.keys(obj)
   
                 const furl = obj.furl
@@ -170,10 +130,10 @@ export default {
                         }),
                     })
   
-                    const inittime = currentTime()
+                    const inittime = func.returnTime()
   
                     const resp = await fetch(send_request)
-                    const resptime = currentTime()
+                    const resptime = func.returnTime()
                     const respt = await resp.text()
   
                     resps.push({ email: element.email, 'initial-timestamp': inittime, 'response-timestamp': resptime, 'mailchannels-response': respt })
@@ -197,9 +157,11 @@ export default {
   
                 let syse = await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/logs.html')).text()
   
-                let stime = currentTime()
+                let stime = func.returnTime()
   
-                syse = syse.replaceAll('${respintime[0]}', respintime[0])
+                syse = syse.replaceAll('${formTime[0]}', formTime[0])
+                    .replaceAll('${formTime[1]}', formTime[1])
+                    .replaceAll('${respintime[0]}', respintime[0])
                     .replaceAll('${respintime[1]}', respintime[1])
                     .replaceAll('${JSON.stringify(obj)}', JSON.stringify(obj))
                     .replaceAll('${fname}', fname)
@@ -248,11 +210,11 @@ export default {
                     }),
                 })
   
-                const inittime = currentTime()
+                const inittime = func.returnTime()
   
                 const resp = await fetch(send_request)
   
-                const resptime = currentTime()
+                const resptime = func.returnTime()
                 resps.push({ system: { email: 'laandro3@gmail.com', 'initial-timestamp': inittime, 'response-timestamp': resptime, 'mailchannels-response': await resp.text() } })
                 let successhtml = await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/success.html')).text()
                 return new Response(successhtml.replaceAll('${JSON.stringify(resps)}', JSON.stringify(resps)), {
@@ -260,13 +222,11 @@ export default {
                         "content-type": "text/html;charset=UTF-8",
                     }
                 });
-            }
-            else if (request.method === "GET") {
-                return new Response('Status: 400 - Bad request. Reason: GET requests are not handled.', { status: 400 });
-            }
-        }
-        else {
-            return Response.redirect('https://www.andrasbiro.work/mail');
+
+
+            default:
+                return func.returnStatus(undefined, undefined, 404)
         }
     }
-  };
+
+}

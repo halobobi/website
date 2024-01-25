@@ -18,8 +18,7 @@ export default {
         let status = paths[1]
 
         if (!Object.keys(previewTexts).includes(status)) { return func.returnStatus(undefined, undefined, 404) }
-
-        console.log(params.get('preview'))
+        
         switch (params.get('preview')) {
             case '1':
                 return new Response(await (await fetch(`https://raw.githubusercontent.com/halobobi/website/master/development/status/${status}.html`)).text(), { headers: { "content-type": "text/html;charset=UTF-8"}, status: status })

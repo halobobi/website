@@ -13,7 +13,10 @@ export default {
         const regexValues = ['string']
 
         async function getKey(key) {
-            return `${key}: OK`
+            const { value, metadata } = await env.TOTP_KEYS.getWithMetadata(key);
+            if(metadata==null){return {isValid:false}}
+            await env.TOTP_KEYS.delete(key);
+            return metadata
 
         }
         async function getRandomKey(length = 10, time = 4, size = 1) {
@@ -31,10 +34,12 @@ export default {
                 int32.forEach(element => {
                     key += chr.charAt(element % chr.length)
                 })
-
-                //add to KV
-
-                data.push(key)
+                
+                if(await env.TOTP_KEYS.get(key)!=null){i--}
+                else{
+                    await env.TOTP_KEYS.put(key,'',{metadata:{isValid:true,createTime:Date.now()},expirationTtl: time*60})
+                    data.push(key)
+                }
             }
 
             console.log(data)
@@ -44,10 +49,10 @@ export default {
 
         let paramKeys = Array.from(new Set(params.keys()))
 
-        if (paramKeys.includes('key')) {
-            if (params.get('key') == '') { return func.returnStatus('API error', respT.replace('${param}', 'key')) }
-            if (paramKeys.length != 1) { return Response.redirect(`https://api.andrasbiro.work/totp?key=${params.get('key')}`) }
-            return new Response(JSON.stringify({ 'response': await getKey(params.get('key')) }), { headers: { "content-type": "application/json;charset=UTF-8", }, status: 200 })
+        if (paramKeys.includes('validKey')) {
+            if (params.get('validKey') == '') { return func.returnStatus('API error', respT.replace('${param}', 'validKey')) }
+            if (paramKeys.length != 1) { return Response.redirect(`https://api.andrasbiro.work/totp?key=${params.get('validKey')}`) }
+            return new Response(JSON.stringify({ 'response': await getKey(params.get('validKey')) }), { headers: { "content-type": "application/json;charset=UTF-8", }, status: 200 })
         }
 
         let validParams = []
@@ -60,6 +65,7 @@ export default {
         }
 
         if (validParams.toString() !== paramKeys.toString()) {
+            if(validParams.length==0){return Response.redirect(`https://api.andrasbiro.work/totp`)}
             return Response.redirect(`https://api.andrasbiro.work/totp?${validParams.map(e => { return `${e}=${params.get(e)}` }).join('&')}`)
         }
 
@@ -88,7 +94,7 @@ export default {
 
         }
 
-        return new Response(JSON.stringify({ 'response': await getRandomKey(paramObj.strLength, paramObj.expTime, paramObj.arraySize) }), { headers: { "content-type": "application/json;charset=UTF-8", }, status: 200 })
+        return new Response(JSON.stringify({ 'response': {validKeys:await getRandomKey(paramObj.strLength, paramObj.expTime, paramObj.arraySize) }}), { headers: { "content-type": "application/json;charset=UTF-8", }, status: 200 })
 
 
     }
