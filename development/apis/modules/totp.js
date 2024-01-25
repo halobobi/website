@@ -2,7 +2,7 @@ import func from './functions.js'
 import status from './status.js'
 
 export default {
-    async fetch(request, params) {
+    async fetch(request, env, params) {
 
         const respT = "If '${param}' parameter is specified, it must have an assigned value."
         const respTValue = "'${param}' parameter should have an ${type} value assigned."
@@ -52,12 +52,12 @@ export default {
 
         let validParams = []
 
-        paramKeys.forEach(e => {
+        for (const e of paramKeys) {
             if (Object.keys(allowedParams).includes(e)) {
-                if (params.get(e) == '') { return func.returnStatus('API error', respT.replace('${param}', e)) }
+                if (params.get(e) == '') {return func.returnStatus('API error', respT.replace('${param}', e))}
                 validParams.push(e)
             }
-        })
+        }
 
         if (validParams.toString() !== paramKeys.toString()) {
             return Response.redirect(`https://api.andrasbiro.work/totp?${validParams.map(e => { return `${e}=${params.get(e)}` }).join('&')}`)
@@ -65,7 +65,7 @@ export default {
 
         let paramObj = {}
 
-        paramKeys.forEach(e => {
+        for (const e of paramKeys){
             let value
             switch (allowedParams[e][0]) {
                 case 'integer':
@@ -86,7 +86,7 @@ export default {
 
             paramObj[e] = value
 
-        })
+        }
 
         return new Response(JSON.stringify({ 'response': await getRandomKey(paramObj.strLength, paramObj.expTime, paramObj.arraySize) }), { headers: { "content-type": "application/json;charset=UTF-8", }, status: 200 })
 
