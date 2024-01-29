@@ -4,9 +4,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="5; url = https://www.andrasbiro.work/sharing" />
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway">
     <link rel="stylesheet" href="https://www.andrasbiro.work/styles/styles.css">
     <link rel="icon" type="image/x-icon" href="https://www.andrasbiro.work/favicon.ico">
+    <style>
+    </style>
     <title>Sharing - Andras Biro</title>
 </head>
 
@@ -24,16 +27,9 @@
     </header>
     <div class="content">
         <section>
-            <h2 class="warning">Password required!</h2>
-        </section>
-        <section>
-            <h2>LOGIN</h2>
-            <section>
-                <form action="https://api.andrasbiro.work/mail/form" method="post">
-                    <input type="password" name="_pw" id="pw" placeholder="Password" required>
-                    <br><input class="submit" type="submit" value="Submit">
-                </form>
-            </section>
+            <h2>Emails successfully sent. You will be redirected shortly...</h2>
+            <p>Response: <span id="resp">${JSON.stringify(resps)}</span> </p>
+            <p><input type="button" id="copy" value="Copy response"> <span id="success">✅</span></p>
         </section>
     </div>
     <footer>
@@ -41,5 +37,6 @@
     </footer>
 </body>
 <script src="https://www.andrasbiro.work/js/page.js"></script>
+<script src="https://www.andrasbiro.work/js/copy.js"></script>
 
 </html>
