@@ -155,6 +155,10 @@ section section {
     min-width: 85%;
 }
 
+section section div{
+    overflow: auto;
+}
+
 table,tr,td{
     border: 1px solid black;
     border-collapse: collapse;
@@ -162,6 +166,7 @@ table,tr,td{
 table{
     width: 100%;
     text-align: center;
+    padding: 10px;
 }
 td{
     padding: 5px 10px;
