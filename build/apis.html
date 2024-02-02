@@ -25,7 +25,7 @@
     <div class="content">
         <section>
             <h2>Time-based One-time Password Generator (TOTP)</h2>
-            <p>Link to API: <a href="https://www.andrasbiro.work/totp">https://api.andrasbiro.work/totp</a></p>
+            <p>Link to API: <a href="https://www.andrasbiro.work/totp" target="_blank">https://api.andrasbiro.work/totp</a></p>
             
             <section>
                 <h3>Parameters</h3>
@@ -89,55 +89,38 @@
                         <td>Description</td>
                     </tr>
                     <tr>
-                        <td><a href="https://api.andrasbiro.work/totp">.../totp</a></td>
+                        <td><a href="https://api.andrasbiro.work/totp" target="_blank">.../totp</a></td>
                         <td>{"response": {"validKeys": ["tyP7nDMJYX"]}}</td>
                         <td>Default values are used, an array of one key with a length of 10 and a 4 minute expiration time is returned.</td>
                     </tr>
                     <tr>
-                        <td><a href="https://api.andrasbiro.work/totp?strLength=6">.../totp? strLength=6</a></td>
+                        <td><a href="https://api.andrasbiro.work/totp?strLength=6" target="_blank">.../totp? strLength=6</a></td>
                         <td>{"response": {"validKeys": ["G0jszD"]}}</td>
                         <td>An array of one key with a length of 6 and a 4 minute expiration time is returned.</td>
                     </tr>
                     <tr>
-                        <td><a href="https://api.andrasbiro.work/totp?strLength=8&arraySize=3">.../totp? strLength=8& arraySize=3</a></td>
+                        <td><a href="https://api.andrasbiro.work/totp?strLength=8&arraySize=3" target="_blank">.../totp? strLength=8& arraySize=3</a></td>
                         <td>{"response": {"validKeys": ["UbAvrMoH", "d3uyooHU", "51UXyVAe"]}}</td>
                         <td>An array of three keys with a length of 8 and a 4 minute expiration time is returned.</td>
                     </tr>
                     <tr>
-                        <td><a href="https://api.andrasbiro.work/totp?strLength=12&arraySize=2&expTime=2">.../totp? strLength=12& arraySize=2& expTime=2</a></td>
+                        <td><a href="https://api.andrasbiro.work/totp?strLength=12&arraySize=2&expTime=2" target="_blank">.../totp? strLength=12& arraySize=2& expTime=2</a></td>
                         <td>{"response": {"validKeys": ["BwV59O7aT1VJ", "e6Qu935035k1"]}}</td>
                         <td>An array of two keys with a length of 12 and a 2 minute expiration time is returned.</td>
                     </tr>
                     <tr>
-                        <td><a href="https://api.andrasbiro.work/totp?validKey=notAValidKey">.../totp? validKey= notAValidKey</a></td>
+                        <td><a href="https://api.andrasbiro.work/totp?validKey=notAValidKey" target="_blank">.../totp? validKey= notAValidKey</a></td>
                         <td>{"response": {"isValid": false}}</td>
                         <td>A false boolean value is returned, signaling that the requested key either expired or never existed.</td>
                     </tr>
                     <tr>
-                        <td><a href="https://api.andrasbiro.work/totp?validKey=aValidKey">.../totp? validKey= aValidKey</a></td>
+                        <td><a href="https://api.andrasbiro.work/totp?validKey=aValidKey" target="_blank">.../totp? validKey= aValidKey</a></td>
                         <td>{"response": {"isValid": true, "createTime": 1706914644012}}</td>
                         <td>A true boolean value comfirming the validity and a timestamp of the key's creation time is returned.</td>
                     </tr>
                 </table>
             </code>
             </section>
-        </section>
-
-        <section>
-            <h2>Section Two</h2>
-            <p>Lorem ipsum dolor Lorem ipsum dolor sit amet consectetur, adipisicing elit. Error temporibus nobis, sit
-                eos quos ipsam nesciunt voluptas veritatis assumenda cumque iure quibusdam mollitia iusto, consequuntur
-                laborum suscipit beatae accusantium eligendi!Lorem amet consectetur adipisicing elit. Reiciendis,
-                repellat ex aspernatur consectetur at laborum inventore eum libero accusamus ipsam nihil deserunt,
-                laudantium voluptates sapiente vel atque, labore excepturi fugiat?Lorem ipsum dolor sit amet,
-                consectetur adipiscing elit. Sed quis urna ac nisi vulputate facilisis. Quisque eu mi nec purus
-                tincidunt varius ac sit amet mauris.</p>
-        </section>
-
-        <section>
-            <h2>Section Three</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed quis urna ac nisi vulputate facilisis.
-                Quisque eu mi nec purus tincidunt varius ac sit amet mauris.</p>
         </section>
     </div>
     <footer>
