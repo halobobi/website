@@ -2,11 +2,12 @@ let isScrolled = false;
 let isMenuOpen = false;
 
 window.onscroll = function() {
-    if(!window.matchMedia("(max-width: 600px)").matches){
+    if(!window.matchMedia("(max-width: 750px)").matches){
             scrollPC();
     }else{
         isMenuOpen=true;
         toggleMenu();
+        header.classList.remove('scroll')
     }
 };
 const icon= document.getElementById("menu-icon")
