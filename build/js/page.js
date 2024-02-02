@@ -7,7 +7,7 @@ window.onscroll = function() {
     }else{
         isMenuOpen=true;
         toggleMenu();
-        header.classList.remove('scroll')
+        document.querySelector("header").classList.remove('scroll')
     }
 };
 const icon= document.getElementById("menu-icon")
