@@ -345,8 +345,8 @@ input:checked + .slider:before {
         height:40px;
     }
     header.scroll{
-        padding: inherit;
-        height:inherit;
+        padding: 0.9em 0;;
+        height:40px;
     }
     body{
         font-size: medium;
