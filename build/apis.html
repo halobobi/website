@@ -8,6 +8,8 @@
     <link rel="stylesheet" href="https://www.andrasbiro.work/styles/styles.css">
     <link rel="icon" type="image/x-icon" href="https://www.andrasbiro.work/favicon.ico">
     <title>APIs - Andras Biro</title>
+    <style>
+    </style>
 </head>
 
 <body>
@@ -24,9 +26,103 @@
     </header>
     <div class="content">
         <section>
-            <h2>Welcome to Page 2</h2>
-            <p>This is another page with a fixed background and scrolling panels.</p>
-            <p>Feel free to customize and add your content here.</p>
+            <h2>Time-based One-time Password Generator (TOTP)</h2>
+            <p>Link to API: <a href="https://www.andrasbiro.work/totp">https://api.andrasbiro.work/totp</a></p>
+            
+            <section>
+                <h3>Parameters</h3>
+                <code>
+                <table>
+                    <tr>
+                        <td>Name</td>
+                        <td>Description</td>
+                        <td>Value type</td>
+                        <td>Minimum value</td>
+                        <td>Maximum value</td>
+                        <td>Default value</td>
+                    </tr>
+                    <tr>
+                        <td>strLength(?)</td>
+                        <td>Defines how many characters long the returned keys are.</td>
+                        <td>Integer</td>
+                        <td>6</td>
+                        <td>16384</td>
+                        <td>10</td>
+                    </tr>
+                    <tr>
+                        <td>expTime(?)</td>
+                        <td>Defines in minutes how long until the returned keys expire.</td>
+                        <td>Integer / Floating-point</td>
+                        <td>1</td>
+                        <td>10080</td>
+                        <td>4</td>
+                    </tr>
+                    <tr>
+                        <td>arraySize(?)</td>
+                        <td>Defines how many keys are to be returned.</td>
+                        <td>Integer</td>
+                        <td>1</td>
+                        <td>15</td>
+                        <td>1</td>
+                    </tr>
+                    <tr>
+                        <td>validKey(?)</td>
+                        <td>Request the validation of provided key.</td>
+                        <td>String</td>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>
+                    </tr>
+                </table>
+            </code>
+            </section>
+            <section>
+                <h3>Usage and returned values</h3>
+                <p>Stringified JSON objects are returned.</p>
+                <p>If <code>validKey</code> parameter is used, all other parameters are disregarded.</p>
+                <p>If any of the valid parameters are used, but a value is not provided an error message is returned.</p>
+                <p>All parameters can be omitted. If valid, the provided values are used, otherwise default values are used.</p>
+                <p>Examples:</p>
+                <code>
+                <table>
+                    <tr>
+                        <td>Request</td>
+                        <td>Yield</td>
+                        <td>Description</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://api.andrasbiro.work/totp">.../totp</a></td>
+                        <td>{"response": {"validKeys": ["tyP7nDMJYX"]}}</td>
+                        <td>Default values are used, an array of one key with a length of 10 and a 4 minute expiration time is returned.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://api.andrasbiro.work/totp?strLength=6">.../totp? strLength=6</a></td>
+                        <td>{"response": {"validKeys": ["G0jszD"]}}</td>
+                        <td>An array of one key with a length of 6 and a 4 minute expiration time is returned.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://api.andrasbiro.work/totp?strLength=8&arraySize=3">.../totp? strLength=8& arraySize=3</a></td>
+                        <td>{"response": {"validKeys": ["UbAvrMoH", "d3uyooHU", "51UXyVAe"]}}</td>
+                        <td>An array of three keys with a length of 8 and a 4 minute expiration time is returned.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://api.andrasbiro.work/totp?strLength=12&arraySize=2&expTime=2">.../totp? strLength=12& arraySize=2& expTime=2</a></td>
+                        <td>{"response": {"validKeys": ["BwV59O7aT1VJ", "e6Qu935035k1"]}}</td>
+                        <td>An array of two keys with a length of 12 and a 2 minute expiration time is returned.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://api.andrasbiro.work/totp?validKey=notAValidKey">.../totp? validKey= notAValidKey</a></td>
+                        <td>{"response": {"isValid": false}}</td>
+                        <td>A false boolean value is returned, signaling that the requested key either expired or never existed.</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://api.andrasbiro.work/totp?validKey=aValidKey">.../totp? validKey= aValidKey</a></td>
+                        <td>{"response": {"isValid": true, "createTime": 1706914644012}}</td>
+                        <td>A true boolean value comfirming the validity and a timestamp of the key's creation time is returned.</td>
+                    </tr>
+                </table>
+            </code>
+            </section>
         </section>
 
         <section>
