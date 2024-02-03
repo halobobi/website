@@ -340,12 +340,12 @@ input:checked + .slider:before {
         display: block;
     }
     header{
-        padding:10px 0;
+        padding:15px 0;
         flex-direction: row;
         height:40px;
     }
     header.scroll{
-        padding: 10px 0;;
+        padding: 15px 0;;
         height:40px;
     }
     body{
@@ -363,7 +363,7 @@ input:checked + .slider:before {
         max-width: 90%;
     }
     nav{
-        margin-top:373px;
+        margin-top:370px;
         padding:0;
         position:fixed;
         flex-direction: column;
