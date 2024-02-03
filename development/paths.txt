@@ -1,1 +1,1 @@
-{"pis.html" "ontact.html" "alobobi.html" "ndex.html" "haring.html" "mages/favicon.ico" "mages/logo.png" "s/copy.js" "s/form.js" "s/page.js" "s/teapot.js" "ounds/pour.mp3" "tyles/status.css" "tyles/styles.css"}
+{"apis.html" "contact.html" "halobobi.html" "index.html" "sharing.html" "images/favicon.ico" "images/logo.png" "js/copy.js" "js/form.js" "js/page.js" "js/teapot.js" "sounds/pour.mp3" "styles/status.css" "styles/styles.css"}
