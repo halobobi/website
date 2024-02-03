@@ -363,7 +363,7 @@ input:checked + .slider:before {
         max-width: 90%;
     }
     nav{
-        margin-top:370px;
+        margin-top:368px;
         padding:0;
         position:fixed;
         flex-direction: column;
