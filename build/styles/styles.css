@@ -340,12 +340,12 @@ input:checked + .slider:before {
         display: block;
     }
     header{
-        padding:0.9em 0;
+        padding:10px 0;
         flex-direction: row;
         height:40px;
     }
     header.scroll{
-        padding: 0.9em 0;;
+        padding: 10px 0;;
         height:40px;
     }
     body{
