@@ -6,7 +6,9 @@ def generate_path_combinations(directory):
     path_combinations = []
     for root, dirs, files in os.walk(directory):
         for file in files:
-            path=os.path.join(root, file)[len(directory)+1:]
+            path=os.path.join(root, file)[len(directory):]
+            if file.endswith(".html"):
+                path=path[:-5]
             
             path_combinations.append(path.replace("\\","/"))
 
