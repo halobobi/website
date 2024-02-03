@@ -1,9 +1,16 @@
 let isScrolled = false;
 let isMenuOpen = false;
 
-window.onscroll = function() {
+window.onresize=function(){
     isMenuOpen=true;
     toggleMenu();
+}
+
+window.onscroll = function() {
+    if(window.matchMedia("(max-width: 750px)").matches){
+        isMenuOpen=true;
+        toggleMenu();
+    }
     scrollPC();
 };
 const icon= document.getElementById("menu-icon")
