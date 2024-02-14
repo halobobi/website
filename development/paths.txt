@@ -1,1 +1,1 @@
-{"/apis" "/contact" "/halobobi" "/index" "/sharing" "/images/favicon.ico" "/images/logo.png" "/js/copy.js" "/js/form.js" "/js/page.js" "/js/teapot.js" "/sounds/pour.mp3" "/styles/status.css" "/styles/styles.css"}
+{"/" "/apis" "/contact" "/halobobi" "/index" "/sharing" "/images/favicon.ico" "/images/logo.png" "/js/copy.js" "/js/form.js" "/js/page.js" "/js/teapot.js" "/sounds/pour.mp3" "/styles/status.css" "/styles/styles.css"}

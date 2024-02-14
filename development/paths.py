@@ -1,9 +1,7 @@
 import os
 
-os.path.sep="/"
-
 def generate_path_combinations(directory):
-    path_combinations = []
+    path_combinations = ["/"]
     for root, dirs, files in os.walk(directory):
         for file in files:
             path=os.path.join(root, file)[len(directory):]
