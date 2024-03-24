@@ -165,6 +165,7 @@ div#github-container{
 }
 
 section.github{
+    height: fit-content;
     min-width: 25%;
     margin:25px;
 }
@@ -355,6 +356,15 @@ input:checked + .slider:before {
 }
 
 @media only screen and (max-width: 1150px) {
+    div#github-container{
+        flex-direction: column;
+    }
+    
+    section.github{
+        margin:10px 0;
+        min-width: 85%;
+    }
+
     div.content section{
         width: 90%;
     }
@@ -393,14 +403,6 @@ input:checked + .slider:before {
     }
     section{
         max-width: 90%;
-    }
-
-    div#github-container{
-        flex-direction: column;
-    }
-    
-    section.github{
-        min-width: 85%;
     }
 
     nav{
