@@ -159,13 +159,13 @@ section section div{
     overflow: auto;
 }
 
-section#github-container{
+div#github-container{
     display: flex;
     flex-direction: row;
 }
 
 section.github{
-    min-width: 45%;
+    min-width: 25%;
 }
 
 section.github img{
@@ -377,7 +377,7 @@ input:checked + .slider:before {
         max-width: 90%;
     }
 
-    section#github-container{
+    div#github-container{
         flex-direction: column;
     }
     
