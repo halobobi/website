@@ -169,6 +169,10 @@ section.github{
     margin:25px;
 }
 
+section.github h3{
+    display: inline;
+}
+
 section.github img{
     border-radius: 100px;
     border: 1px solid black;
