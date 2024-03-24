@@ -160,6 +160,7 @@ section section div{
 }
 
 section#github-container{
+    display: flex;
     flex-direction: row;
 }
 
