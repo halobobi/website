@@ -166,6 +166,7 @@ div#github-container{
 
 section.github{
     min-width: 25%;
+    margin:25px;
 }
 
 section.github img{
