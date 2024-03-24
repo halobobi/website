@@ -159,6 +159,14 @@ section section div{
     overflow: auto;
 }
 
+section.github{
+    flex-direction: row;
+}
+
+section.github section{
+    width: 40%;
+}
+
 table,tr,td{
     border: 1px solid black;
     border-collapse: collapse;
@@ -362,6 +370,15 @@ input:checked + .slider:before {
     section{
         max-width: 90%;
     }
+
+    section.github{
+        flex-direction: column;
+    }
+    
+    section.github section{
+        width: 90%;
+    }
+
     nav{
         top:0;
         margin-top:70px;
