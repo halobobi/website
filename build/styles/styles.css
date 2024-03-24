@@ -169,6 +169,10 @@ section.github{
     margin:25px;
 }
 
+section.github p{
+    text-align: left;
+}
+
 section.github div.user{
     display: flex;
     justify-content: center;
