@@ -159,15 +159,15 @@ section section div{
     overflow: auto;
 }
 
-section.github{
+#github-container{
     flex-direction: row;
 }
 
-section.github section{
+section.github{
     width: 40%;
 }
 
-section.github section img{
+section.github img{
     border-radius: 100px;
     border: 1px solid black;
 }
