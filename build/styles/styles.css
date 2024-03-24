@@ -169,7 +169,7 @@ section.github{
     margin:25px;
 }
 
-section.github section.user{
+section.github div.user{
     display: flex;
     justify-content: center;
     align-items: center;
