@@ -167,6 +167,11 @@ section.github section{
     width: 40%;
 }
 
+section.github section img{
+    border-radius: 100px;
+    border: 1px solid black;
+}
+
 table,tr,td{
     border: 1px solid black;
     border-collapse: collapse;
