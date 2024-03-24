@@ -169,14 +169,20 @@ section.github{
     margin:25px;
 }
 
+section.github section.user{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 section.github h3{
     height: 48px;
+    margin:20px 0 0 0;
     padding: 20px;
     display: inline-block;
 }
 
 section.github img{
-    vertical-align: middle;
     border-radius: 100px;
     border: 1px solid black;
 }
