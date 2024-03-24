@@ -159,7 +159,7 @@ section section div{
     overflow: auto;
 }
 
-#github-container{
+section#github-container{
     flex-direction: row;
 }
 
@@ -376,11 +376,11 @@ input:checked + .slider:before {
         max-width: 90%;
     }
 
-    section.github{
+    section#github-container{
         flex-direction: column;
     }
     
-    section.github section{
+    section.github{
         width: 90%;
     }
 
