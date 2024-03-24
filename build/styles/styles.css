@@ -164,7 +164,7 @@ section#github-container{
 }
 
 section.github{
-    width: 40%;
+    min-width: 45%;
 }
 
 section.github img{
@@ -381,7 +381,7 @@ input:checked + .slider:before {
     }
     
     section.github{
-        width: 90%;
+        min-width: 85%;
     }
 
     nav{
