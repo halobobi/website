@@ -2,7 +2,7 @@
 	"name": "apis",
 	"main": "development/apis/worker.js",
 	"compatibility_date": "2025-01-14",
-	assets:{
+	"assets":{
 		"directory":"./development/apis"
 	}
 }
