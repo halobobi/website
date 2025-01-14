@@ -11,21 +11,19 @@ export default {
             case 'form':
 
                 if (JSON.parse(await func.readRequestBody(request))._pw != env.API_PW) { return func.returnStatus('API error', 'Authentication failed based on provided credentials.', 401) }
-
+                
                 let formhtml = await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/form.html')).text()
                 
                 let safePw,pw
 
                 do {
-                    let resp = await (await fetch('https://api.andrasbiro.work/totp')).json()
+                    const resp=await func.getRandomKey(env)
 
-                    pw = resp.response.validKeys[0]
+                    pw = resp[0]
 
                     safePw = pw.substring(0, 5)
                 }
                 while (await env.SYS_IDS.get(safePw) != null)
-
-                await env.SYS_IDS.put()
 
                 await env.SYS_IDS.put(safePw,pw,{expirationTtl: 600})
 
@@ -34,25 +32,20 @@ export default {
                     { headers: { "content-type": "text/html;charset=UTF-8" } })
             case 'send':
 
-                const respintime = func.returnTime()
+                const respintime = await func.returnTime()
                 const reqBody = await func.readRequestBody(request)
 
                 let obj = JSON.parse(reqBody)
 
                 const key=(await env.SYS_IDS.get(obj._pw))
 
-                if ( key == null) { return func.returnStatus('API error', 'System integrity identifier mismatch. Who are you?', 403) }
+                if ( key == null) { return func.returnStatus('API error', 'Failed to authenticate due to system integrity identifier mismatch. <b>Who are you?</b> 🕵️', 403) }
 
-                let validR = await (await fetch(`https://api.andrasbiro.work/totp?validKey=${key}`)).json()
+                let validR = await func.getKey(env,key)
 
-                let valid
+                if (!validR.isValid) { return func.returnStatus('API error', 'Failed to authenticate system integrity identifier as it had already expired.', 401) }
 
-                if (validR.response.isValid === 'true') { valid = true }
-                else { valid = false }
-
-                if (!valid) { return func.returnStatus('API error', 'Failed to authenticate system integrity identifier as it had already expired.', 401) }
-
-                const formTime = func.returnTime(undefined, parseInt(validR.response.createTime))
+                const formTime = await func.returnTime(undefined, parseInt(validR.createTime))
 
                 const keys = Object.keys(obj)
   
@@ -130,10 +123,10 @@ export default {
                         }),
                     })
   
-                    const inittime = func.returnTime()
+                    const inittime = await func.returnTime()
   
                     const resp = await fetch(send_request)
-                    const resptime = func.returnTime()
+                    const resptime = await func.returnTime()
                     const respt = await resp.text()
   
                     resps.push({ email: element.email, 'initial-timestamp': inittime, 'response-timestamp': resptime, 'mailchannels-response': respt })
@@ -157,7 +150,7 @@ export default {
   
                 let syse = await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/logs.html')).text()
   
-                let stime = func.returnTime()
+                let stime = await func.returnTime()
   
                 syse = syse.replaceAll('${formTime[0]}', formTime[0])
                     .replaceAll('${formTime[1]}', formTime[1])
@@ -210,11 +203,11 @@ export default {
                     }),
                 })
   
-                const inittime = func.returnTime()
+                const inittime = await func.returnTime()
   
                 const resp = await fetch(send_request)
   
-                const resptime = func.returnTime()
+                const resptime = await func.returnTime()
                 resps.push({ system: { email: 'laandro3@gmail.com', 'initial-timestamp': inittime, 'response-timestamp': resptime, 'mailchannels-response': await resp.text() } })
                 let successhtml = await (await fetch('https://raw.githubusercontent.com/halobobi/website/master/development/success.html')).text()
                 return new Response(successhtml.replaceAll('${JSON.stringify(resps)}', JSON.stringify(resps)), {

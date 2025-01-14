@@ -64,5 +64,38 @@ export default {
     } else {
       return this.returnStatus('API error',`Media/content type '${contentType}' is not supported.`,415);
     }
-  }
+  },
+
+  async getKey(env,key) {
+    const { value, metadata } = await env.TOTP_KEYS.getWithMetadata(key);
+    if(metadata==null){return {isValid:false}}
+    await env.TOTP_KEYS.delete(key);
+    return metadata
+
+},
+async getRandomKey(env,length = 10, time = 4, size = 1) {
+
+    const chr = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'
+
+    let data = []
+
+    for (let i = 0; i < size; i++) {
+        const int32 = new Uint32Array(length);
+        crypto.getRandomValues(int32)
+
+        let key = ''
+
+        int32.forEach(element => {
+            key += chr.charAt(element % chr.length)
+        })
+        
+        if(await env.TOTP_KEYS.get(key)!=null){i--}
+        else{
+            await env.TOTP_KEYS.put(key,'',{metadata:{isValid:true,createTime:Date.now()},expirationTtl: time*60})
+            data.push(key)
+        }
+    }
+
+    return data
+}
 }
