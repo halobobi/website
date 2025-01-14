@@ -1,5 +1,6 @@
 {
 	"name": "apis",
 	"main": "development/apis/worker.js",
+	"site-include":"./development/apis/"
 	"compatibility_date": "2025-01-14",
 }
