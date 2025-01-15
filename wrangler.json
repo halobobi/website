@@ -7,7 +7,7 @@
     	{
       		"type": "Text",
       		"globs": [
-        		"**/*.js"
+        		"modules/*.js"
       		],
       		"fallthrough": true
     }
