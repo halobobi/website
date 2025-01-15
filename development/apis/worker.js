@@ -25,11 +25,6 @@ export default {
         case 1:{
 
         switch (pathnames[0]) {
-          case 'mail':
-            if (pathnames.length == 1) return func.returnStatus('API error', `URL '/mail' does not handle requests.`, 421)
-            if (request.method == 'GET') return func.returnStatus('API error', `URL '/mail' does not handle GET requests.`, 405)
-  
-            return mail.fetch(request, env, pathnames)
           case 'totp':
             if (request.method == 'POST') return func.returnStatus('API error', `URL '/totp' does not handle POST requests.`, 405)
             if (pathnames.length != 1) return func.returnStatus(undefined, undefined, 404)
@@ -52,6 +47,12 @@ export default {
       case 2:{
 
         switch (pathnames[0]) {
+
+          case 'mail':
+            if (pathnames.length == 1) return func.returnStatus('API error', `URL '/mail' does not handle requests.`, 421)
+            if (request.method == 'GET') return func.returnStatus('API error', `URL '/mail' does not handle GET requests.`, 405)
+  
+            return mail.fetch(request, env, pathnames)
 
           case 'flowpro':{
 
