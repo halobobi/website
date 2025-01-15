@@ -17,9 +17,6 @@ function generatePreview() {
     for (let index = 1; index < 5; index++) {
         if (document.getElementById(`email${index}`).checked) {
             switch (index) {
-                case 1:
-                    eads.push('orosz.hanna.07.25@gmail.com')
-                    break;
                 case 2:
                     eads.push('andrasbir@gmail.com')
                     break;
