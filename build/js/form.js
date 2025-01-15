@@ -97,7 +97,7 @@ function finishHU(result) {
     document.getElementById(`fname`).addEventListener('input', generatePreview)
     document.getElementById(`lang`).addEventListener('input', generatePreview)
 
-    for (let index = 1; index < 5; index++) {
+    for (let index = 1; index < 4; index++) {
         document.getElementById(`email${index}`).addEventListener('input', generatePreview)
     }
 }
