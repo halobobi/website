@@ -5,7 +5,7 @@ export default {
     async fetch(request, env, paths) {
 
         const headers = Object.fromEntries(request.headers)
-
+	console.log(paths[1]);
         switch (paths[1]) {
 
             case 'form':
