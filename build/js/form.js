@@ -14,7 +14,7 @@ function addNew() {
 
 function generatePreview() {
     let eads = []
-    for (let index = 1; index < 5; index++) {
+    for (let index = 1; index < 4; index++) {
         if (document.getElementById(`email${index}`).checked) {
             switch (index) {
                 case 2:
