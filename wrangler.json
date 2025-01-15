@@ -4,12 +4,22 @@
 	"compatibility_date": "2025-01-14",
 	"find_additional_modules":true,
 	"rules": [
-    	{
+    		{
       		"type": "Text",
       		"globs": [
         		"modules/*.js"
       		],
       		"fallthrough": true
-    }
-  ]
+    		}
+  	],
+	"kv_namespaces":[
+    		{
+      		"binding": "TOTP_KEYS",
+      		"id": "f882664d410743f6a1423ed8a4e81a0e"
+    		},
+		{
+      		"binding": "SYS_IDS",
+      		"id": "3217472a860547dbb4b2788a3316b785"
+    		}
+	]
 }
