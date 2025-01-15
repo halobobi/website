@@ -14,7 +14,7 @@ function addNew() {
 
 function generatePreview() {
     let eads = []
-    for (let index = 1; index < 4; index++) {
+    for (let index = 2; index < 5; index++) {
         if (document.getElementById(`email${index}`).checked) {
             switch (index) {
                 case 2:
@@ -97,7 +97,7 @@ function finishHU(result) {
     document.getElementById(`fname`).addEventListener('input', generatePreview)
     document.getElementById(`lang`).addEventListener('input', generatePreview)
 
-    for (let index = 1; index < 4; index++) {
+    for (let index = 2; index < 5; index++) {
         document.getElementById(`email${index}`).addEventListener('input', generatePreview)
     }
 }
