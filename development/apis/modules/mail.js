@@ -59,7 +59,7 @@ export default {
   
                 let emails = []
   
-                if (keys.includes('email1')) if (obj.email1 == 'on') emails.push({ email: 'orosz.hanna.07.25@gmail.com' })
+                // if (keys.includes('email1')) if (obj.email1 == 'on') emails.push({ email: '' })
                 if (keys.includes('email2')) if (obj.email2 == 'on') emails.push({ email: 'andrasbir@gmail.com' })
                 if (keys.includes('email3')) if (obj.email3 == 'on') emails.push({ email: 'andrasbir2@gmail.com' })
                 if (keys.includes('email4')) if (obj.email4 == 'on') emails.push({ email: 'laandro3@gmail.com' })
